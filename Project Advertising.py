@@ -24,5 +24,24 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-#url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
-#Advert = pd.read_csv(url)
+url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
+Advert = pd.read_csv(url)
+
+X = Advert.data
+Y = Advert.target
+
+clf = RandomForestClassifier()
+clf.fit(X, Y)
+
+prediction = clf.predict(df)
+prediction_proba = clf.predict_proba(df)
+
+st.subheader('Class labels and their corresponding index number')
+st.write(Advert.target_names)
+
+st.subheader('Prediction')
+st.write(Advert.target_names[prediction])
+#st.write(prediction)
+
+st.subheader('Prediction Probability')
+st.write(prediction_proba)
