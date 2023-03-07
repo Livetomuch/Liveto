@@ -27,8 +27,8 @@ st.write(df)
 url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
 Advert = pd.read_csv(url)
 
-X = Advert.data
-Y = Advert.target
+X = Advert.drop('Sales',axis = 1)
+Y = Advert['Sales']
 
 clf = RandomForestClassifier()
 clf.fit(X, Y)
