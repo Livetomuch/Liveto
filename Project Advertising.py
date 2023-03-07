@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
+from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
 
@@ -27,6 +29,8 @@ st.write(df)
 url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
 Advert = pd.read_csv(url)
 
+Advert['Sales'] = pd.cut(Advert['Sales'], bins=[0, 30, 60, 90, 120], labels=['0-30', '30-60', '60-90', '90-120'])
+
 X = Advert.drop('Sales',axis = 1)
 Y = Advert['Sales']
 
@@ -37,11 +41,11 @@ prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
-st.write(Advert.target_names)
+st.subheader('Class labels')
+st.write(['0-30', '30-60', '60-90', '90-120'])
 
 st.subheader('Prediction')
-st.write(Advert.target_names[prediction])
-#st.write(prediction)
+st.write(prediction)
 
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
