@@ -5,6 +5,7 @@ from sklearn.linear_model import LinearRegression
 
 st.write("""
 # Advertising to Sales Prediction App
+by Linear Regression
 """)
 
 st.sidebar.header('User Input Parameters')
