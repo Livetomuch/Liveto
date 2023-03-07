@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn import datasets
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import linearregression
 
 
 st.write("""
@@ -28,7 +28,7 @@ st.write(df)
 
 #url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
 #Advert = pd.read_csv(url)
-df = pd.read_csv('Advertising2 (1).csv')
+df = pd.read_csv('Advertising.csv')
 
 X = df.drop('Sales',axis = 1)
 Y = df.Sales
@@ -38,10 +38,6 @@ clf.fit(X, Y)
 
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
-
-st.subheader('Class labels and their corresponding index number')
-st.subheader('Class labels')
-st.write(['0 to 20', '20 to 40', '40 to 60', '60 to 80', '80 to 100'])
 
 st.subheader('Prediction')
 st.write(prediction)
