@@ -31,7 +31,7 @@ st.write(df)
 #Advert = pd.read_csv(url)
 df = pd.read_csv('Advertising2 (1).csv')
 
-X = df
+X = df.drop('Sales',axis=1)
 Y = df.Sales
 
 clf = RandomForestClassifier()
