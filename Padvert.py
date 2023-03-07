@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
 # Advertising to Sales Prediction App
+by Random Forest
 """)
 
 st.sidebar.header('User Input Parameters')
