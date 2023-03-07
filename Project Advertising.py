@@ -30,8 +30,6 @@ st.write(df)
 #Advert = pd.read_csv(url)
 Advert = pd.read_csv('Advertising2 (1).csv')
 
-Advert['Sales'] = pd.cut(Advert['Sales'], bins=[0, 30, 60, 90, 120], labels=['0-30', '30-60', '60-90', '90-120'])
-
 X = Advert.drop('Sales',axis = 1)
 Y = Advert['Sales']
 
@@ -43,7 +41,7 @@ prediction_proba = clf.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
 st.subheader('Class labels')
-st.write(['0-30', '30-60', '60-90', '90-120'])
+st.write(['0 to 20', '20 to 40', '40 to 60', '60 to 80', '80 to 100'])
 
 st.subheader('Prediction')
 st.write(prediction)
