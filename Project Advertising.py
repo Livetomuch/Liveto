@@ -31,7 +31,7 @@ st.write(df)
 df = pd.read_csv('Advertising2 (1).csv')
 
 X = df.drop('Sales',axis = 1)
-Y = df['Sales']
+Y = df.Sales
 
 clf = RandomForestClassifier()
 clf.fit(X, Y)
