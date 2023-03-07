@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn import datasets
-from sklearn.ensemble import linearregression
-
+from sklearn.linear_model import LinearRegression
 
 st.write("""
 # Advertising to Sales Prediction App
@@ -26,21 +24,16 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-#url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
-#Advert = pd.read_csv(url)
-df = pd.read_csv('Advertising.csv')
+df_train = pd.read_csv('Advertising.csv')
 
-X = df.drop('Sales',axis = 1)
-Y = df.Sales
+X_train = df_train[['TV', 'Radio', 'Newspaper']]
+y_train = df_train['Sales']
 
-clf = RandomForestClassifier()
-clf.fit(X, Y)
+reg = LinearRegression()
+reg.fit(X_train, y_train)
 
-prediction = clf.predict(df)
-prediction_proba = clf.predict_proba(df)
+X_test = df[['TV', 'Radio', 'Newspaper']]
+y_pred = reg.predict(X_test)
 
 st.subheader('Prediction')
-st.write(prediction)
-
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+st.write(y_pred)
