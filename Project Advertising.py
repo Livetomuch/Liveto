@@ -28,7 +28,7 @@ st.write(df)
 
 #url = 'https://raw.githubusercontent.com/livetomuch/liveto/main/Advertising.csv'
 #Advert = pd.read_csv(url)
-Advert = pd.read_csv('Advertising.csv')
+Advert = pd.read_csv('Advertising2 (1).csv')
 
 Advert['Sales'] = pd.cut(Advert['Sales'], bins=[0, 30, 60, 90, 120], labels=['0-30', '30-60', '60-90', '90-120'])
 
