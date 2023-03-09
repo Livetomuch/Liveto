@@ -32,6 +32,6 @@ for pdf_file in pdf_files:
         output_pdf.addPage(page)
     
     # Save the cropped pages as a new PDF file with the same name as the original file
-    output_file_name = f'cropped_{pdf_file}'
+    output_file_name = f'{pdf_file}'
     with open(output_file_name, 'wb') as output_file:
         output_pdf.write(output_file)
